@@ -17,7 +17,8 @@ func Input(prompt string, args ...interface{}) string {
 		fmt.Println("There were errors reading, exiting program.")
 		return ""
 	}
-	return s
+	s = strings.Replace(s, "\n", "", -1)
+	return strings.Replace(s, "\r", "", -1)
 }
 
 // String prompt.
