@@ -4,6 +4,21 @@ import "github.com/howeyc/gopass"
 import "strings"
 import "strconv"
 import "fmt"
+import "bufio"
+import "os"
+
+// String prompt.
+func Input(prompt string, args ...interface{}) string {
+	var s string
+	fmt.Printf(prompt+" ", args...)
+	inputReader := bufio.NewReader(os.Stdin)
+	s, err := inputReader.ReadString('\n')
+	if err != nil {
+		fmt.Println("There were errors reading, exiting program.")
+		return ""
+	}
+	return s
+}
 
 // String prompt.
 func String(prompt string, args ...interface{}) string {
